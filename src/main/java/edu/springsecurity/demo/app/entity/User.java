@@ -1,6 +1,7 @@
 package edu.springsecurity.demo.app.entity;
 
 import lombok.Data;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -11,12 +12,16 @@ import java.util.Collection;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private int id;
 
-    private String name;
+    @Column(name="username")
+    private String username;
 
+    @Column(name="password")
     private String password;
 
+    @Column(name="email")
     private String email;
 
     @ManyToMany
